@@ -14,12 +14,14 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 /**
+ * Eureka Client controller
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/9/14 23:39
  */
 @RestController
-public class MainController {
+public class EurekaClientController {
 
     @Autowired
     DiscoveryClient discoveryClient;
