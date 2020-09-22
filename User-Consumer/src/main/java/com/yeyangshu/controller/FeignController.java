@@ -1,6 +1,7 @@
 package com.yeyangshu.controller;
 
 import com.yeyangshu.api.UserApi;
+import com.yeyangshu.api.UserApi2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,11 @@ public class FeignController {
     @Autowired
     UserApi userApi;
 
+    @Autowired
+    UserApi2 userApi2;
+
     /**
+     * 不结合 eureka
      * 服务请求时通过 @FeignClient 注解拦截，向 userApi 定义的 url+GetMapping 发送 HTTP 请求，返回结果
      *
      * @return
@@ -24,5 +29,19 @@ public class FeignController {
     @GetMapping("/alive")
     public String alive() {
         return userApi.alive();
+    }
+
+    /**
+     * 结合 eureka
+     * 和 RestTemplate 有区别吗？
+     * 好处：
+     *  - 没有代码侵入
+     *  - 方便做异构系统
+     *
+     * @return
+     */
+    @GetMapping("/alive2")
+    public String alive2() {
+        return userApi2.alive();
     }
 }
