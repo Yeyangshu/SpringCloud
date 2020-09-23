@@ -2,6 +2,7 @@ package com.yeyangshu.controller;
 
 import com.yeyangshu.api.UserApi;
 import com.yeyangshu.api.UserApi2;
+import com.yeyangshu.api.UserApi3;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +18,11 @@ public class FeignController {
     @Autowired
     UserApi userApi;
 
+//    @Autowired
+//    UserApi2 userApi2;
+
     @Autowired
-    UserApi2 userApi2;
+    UserApi3 userApi3;
 
     /**
      * 不结合 eureka
@@ -40,8 +44,17 @@ public class FeignController {
      *
      * @return
      */
-    @GetMapping("/alive2")
-    public String alive2() {
-        return userApi2.alive();
+//    @GetMapping("/alive2")
+//    public String alive2() {
+//        return userApi2.alive();
+//    }
+
+    /**
+     * 自定义接口，Feign 调用服务提供者
+     * @return
+     */
+    @GetMapping("/alive3")
+    public String alive3() {
+        return userApi3.isAlive();
     }
 }
