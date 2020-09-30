@@ -21,8 +21,8 @@ public class FeignController {
 //    @Autowired
 //    UserApi2 userApi2;
 
-    @Autowired
-    UserApi3 userApi3;
+//    @Autowired
+//    UserApi3 userApi3;
 
     /**
      * 不结合 eureka
@@ -30,10 +30,10 @@ public class FeignController {
      *
      * @return
      */
-    @GetMapping("/alive")
-    public String alive() {
-        return userApi.alive();
-    }
+//    @GetMapping("/alive")
+//    public String alive() {
+//        return userApi.alive();
+//    }
 
     /**
      * 结合 eureka
@@ -53,8 +53,8 @@ public class FeignController {
      * 自定义接口，Feign 调用服务提供者
      * @return
      */
-    @GetMapping("/alive3")
-    public String alive3() {
-        return userApi3.isAlive();
-    }
+//    @GetMapping("/alive3")
+//    public String alive3() {
+//        return userApi3.isAlive();
+//    }
 }

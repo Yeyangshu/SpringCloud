@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @version 1.0
  * @date 2020/9/23 23:57
  */
-@FeignClient(name = "user-provider")
+//@FeignClient(name = "user-provider")
 public interface UserApi3 extends RegisterApi {
 }
