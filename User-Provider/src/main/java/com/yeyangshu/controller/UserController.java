@@ -17,6 +17,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 @RestController
 public class UserController implements RegisterApi {
 
+    @Value("${server.port}")
+    String port;
+
     /**
      * Controller 实现自定义接口
      *
@@ -24,11 +27,9 @@ public class UserController implements RegisterApi {
      */
     @Override
     public String isAlive() {
+        int i = 1 / 0;
         return "ok";
     }
-
-    @Value("${server.port}")
-    String port;
 
     private AtomicInteger count = new AtomicInteger();
 
@@ -41,7 +42,7 @@ public class UserController implements RegisterApi {
         }
 
         int i = count.getAndIncrement();
-        System.out.println("====好的第：" + i + "次调用");
+        System.out.println("好的第：" + i + "次调用");
         return "port:" + port;
     }
 

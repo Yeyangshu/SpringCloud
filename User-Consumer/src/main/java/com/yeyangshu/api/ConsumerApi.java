@@ -1,6 +1,6 @@
 package com.yeyangshu.api;
 
-import com.yeyangshu.controller.UserProviderBack;
+import com.yeyangshu.controller.UserProviderBackFactory;
 import com.yeyangshu.entity.Person;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Map;
 
-@FeignClient(name = "user-provider", fallback = UserProviderBack.class)
+@FeignClient(name = "user-provider", fallbackFactory = UserProviderBackFactory.class)
 public interface ConsumerApi extends RegisterApi {
 
     /**
