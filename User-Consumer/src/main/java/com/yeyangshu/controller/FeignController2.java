@@ -4,6 +4,7 @@ import com.yeyangshu.api.ConsumerApi;
 import com.yeyangshu.entity.Person;
 import com.yeyangshu.service.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -22,14 +23,21 @@ public class FeignController2 {
     @Autowired
     RestService restService;
 
+    @Value("${server.port}")
+    String port;
+
     @GetMapping("/alive")
     public String alive() {
         return api.isAlive();
     }
 
+    /**
+     * 添加 consumer port，测试 Zuul 网关负载均衡
+     * @return
+     */
     @GetMapping("/alive2")
     public String alive2() {
-        return restService.alive();
+        return "consumer port:" + port + restService.alive();
     }
 
     /**
