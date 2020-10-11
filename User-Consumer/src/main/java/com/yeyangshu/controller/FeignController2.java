@@ -2,6 +2,7 @@ package com.yeyangshu.controller;
 
 import com.yeyangshu.api.ConsumerApi;
 import com.yeyangshu.entity.Person;
+import com.yeyangshu.service.RestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,9 +19,17 @@ public class FeignController2 {
     @Autowired
     ConsumerApi api;
 
+    @Autowired
+    RestService restService;
+
     @GetMapping("/alive")
-    public String alive4() {
+    public String alive() {
         return api.isAlive();
+    }
+
+    @GetMapping("/alive2")
+    public String alive2() {
+        return restService.alive();
     }
 
     /**
