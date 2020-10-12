@@ -26,6 +26,14 @@ public class FeignController2 {
     @Value("${server.port}")
     String port;
 
+    @Value("${config.info}")
+    String gitConfigInfo;
+
+    @GetMapping
+    public String getConfig() {
+        return gitConfigInfo;
+    }
+
     @GetMapping("/alive")
     public String alive() {
         return api.isAlive();
